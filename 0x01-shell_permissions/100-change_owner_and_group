@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmon vincent:staff .
+sudo chmod vincent:staff .
