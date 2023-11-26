@@ -1,0 +1,18 @@
+White-boarding screenshot link - https://imgur.com/hNInaRl
+
+What are firewalls for
+- A firewall is used to limit or restrict unwanted traffic from a network
+
+Why is the traffic served over HTTPS
+- Traffic are served over HTTPS when security of data transmitted is desired
+
+What monitoring is used for
+- Monitoring is useful in accessing the state of function of server or network
+
+How the monitoring tool is collecting data
+- Monitoring tool collect data using agents this could be snippet of codes inserted into a website
+
+Why having servers with all the same components (database, web server and application server) might be a problem
+- Have the same components in the same servers is good for security and performance reasons
+Security wise, if one server is compromised the attacker has access to every data
+in terms of performance, every component of this server like database server has different memory requirements as such having them seperately improves performance
