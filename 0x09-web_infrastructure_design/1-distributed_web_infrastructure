@@ -1,0 +1,12 @@
+White-boarding image link https://imgur.com/a/jDDLXn7
+
+What distribution algorithm your load balancer is configured with and how it works
+- Load balancer use different algorithm to serve the function. One of those algorithm is Round Robin algorithm
+
+Round robin algorithm splits tasks sequentially between servers, assuming that there two servers in the clustter/farm, the first server attend to the first request and the second server attends to the second request then the circle repeats itself
+
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+- From our setup and task requirement the load balancer is on Active-Passive setup, where the first server is active and the second server is on standby waiting to come online should the active server fail
+
+How a database Primary-Replica (Master-Slave) cluster works
+What is the difference between the Primary node and the Replica node in regard to the application
