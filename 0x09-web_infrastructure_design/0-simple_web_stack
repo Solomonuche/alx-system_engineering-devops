@@ -22,3 +22,6 @@ What is the role of the database
 
 What is the server using to communicate with the computer of the user requesting the website
 - The server communicates with user using the Transport communication protocol/internet protocol (TCP/IP) suite
+
+SPOF
+- There is no redundancy in this system as such they are several single point of failure. Any issues/failures will affect the whole system
