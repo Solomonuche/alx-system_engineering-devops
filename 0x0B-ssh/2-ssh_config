@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # SSH client configuration file
 
-Host *
+Host ubuntu
 #   ForwardAgent no
 #   ForwardX11 no
 #   ForwardX11Trusted yes
-#   PasswordAuthentication yes
+    PasswordAuthentication no
 #   HostbasedAuthentication no
 #   GSSAPIAuthentication no
 #   GSSAPIDelegateCredentials no
