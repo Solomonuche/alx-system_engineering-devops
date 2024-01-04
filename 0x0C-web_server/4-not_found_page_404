@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# 404
+
+sudo apt update
+sudo apt install -y nginx
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+
+sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+echo "Ceci n'est pas une page\n" >> /var/www/html/error_404.html
+sed -i '38i\error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
