@@ -13,6 +13,7 @@ string='\n\tlocation /redirect_me {
 
 echo -e "$string" > temp_file
 sudo sed -i '/server_name .*/ r temp_file' /etc/nginx/sites-available/default
+sudo sed -i '/server_name .*/ r temp_file' /etc/nginx/sites-enabled/default
 sudo rm temp_file
 
 sudo service nginx restart
