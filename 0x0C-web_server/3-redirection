@@ -9,9 +9,6 @@ sudo service nginx restart
 
 #sudo sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
-sudo sh -c 'echo "\n\trewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" > tmp.txt'
-
-sudo sed -i '/server_name .*/r tmp.txt' /etc/nginx/sites-available/default
-sudo rm tmp.txt
+sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
 sudo service nginx restart
