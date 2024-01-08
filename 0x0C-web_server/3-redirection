@@ -5,9 +5,13 @@ sudo apt update
 sudo apt install -y nginx
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 
-sudo service nginx start
+sudo service nginx restart
 
-sudo sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+#sudo sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
+sudo sh -c 'echo "\n\trewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" > tmp.txt'
+
+sudo sed -i '/server_name .*/r tmp.txt' /etc/nginx/sites-enabled/default
+sudo rm tmp.txt
 
 sudo service nginx restart
