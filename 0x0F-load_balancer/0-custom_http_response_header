@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Set up web servers
+
+apt-get update
+apt-get install -y nginx
+
+echo "Hello World!" > /var/www/html/index.html
+cat > /etc/nginx/sites-available/default <<EOF
+server {
+	listen 80;
+	listen [::]:80 default_server;
+	root   /var/www/html;
+	index  index.html index.htm;
+	server_name _;
+	location / {
+        try_files \$uri \$uri/ =404;
+	add_header X-Served-By \$HOSTNAME;
+    }
+}
+EOF
+
+service nginx restart
