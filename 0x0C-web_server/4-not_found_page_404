@@ -19,12 +19,12 @@ sudo sh -c "cat << EOF > /var/www/html/404-page.html
 Ceci n'est pas une page
 EOF"
 
-sudo sh -c 'cat << EOF | sed -i "/server_name .*/r /dev/stdin" /etc/nginx/sites-available/default
+sudo sh -c 'cat << EOF | sed -i "/server_name .*/r /dev/stdin" /etc/nginx/sites-enabled/default
 
         error_page 404 /404-page.html;
 
 	location = /404-page.html {
-                root 404 /var/www/html;
+                root /var/www/html;
 		internal;
         }
 EOF'
