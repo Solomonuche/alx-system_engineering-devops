@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Set up web servers
 
-apt-get update
-apt-get install -y nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
-echo "Hello World!" > /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 
-sudo sed -i "/location \\/ {/a \\\tadd_header X-Served-By: $HOSTNAME;" /etc/nginx/sites-available/default
+sudo sed -i "/location \\/ {/a \\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 
 sudo service nginx restart
