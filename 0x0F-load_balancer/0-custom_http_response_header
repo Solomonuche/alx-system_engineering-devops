@@ -6,6 +6,6 @@ apt-get install -y nginx
 
 echo "Hello World!" > /var/www/html/index.html
 
-sudo sed -i "/location \//a \tadd_header X-Served-By: $i(HOSTNAME);" /etc/nginx/sites-available/default
+sudo sed -i "/location \\/ {/a \\\tadd_header X-Served-By: $HOSTNAME;" /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
