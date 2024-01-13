@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# a Bash script that will display information about subdomains
+
+#!/bin/bash
+
+domain="$1"
+
+subdomain='none'
+
+function query_dns {
+	output=$(dig "$subdomain.$domain" +noall +answer)
+	if [[ $output == *"IN"* ]]; then
+		rtype=$(echo "$output" | awk '{print $4}')
+		ip=$(echo "$output" | awk '{print $5}')
+		echo "The subdomain $subdomain is a $rtype record and points to $ip".
+	fi
+}
+
+if [ -n "$2" ]; then
+	subdomain="$2"
+	query_dns
+else
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	    
+	for subdomain in "${subdomains[@]}"; do
+		query_dns
+	done
+fi
+
+# Check for the "status: NXDOMAIN" string in the output
+
