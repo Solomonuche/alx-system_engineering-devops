@@ -4,4 +4,5 @@ import requests
 from sys import argv
 
 
-pass
+employee_url = 'https://jsonplaceholder.typicode.com/users'
+employee_todos = 'https://jsonplaceholder.typicode.com/todos'
