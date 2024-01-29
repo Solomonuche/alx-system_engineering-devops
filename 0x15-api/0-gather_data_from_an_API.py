@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ a Python script that, using this REST API"""
-
-
 import requests
 from sys import argv
+
 
 # make a request for an employee with query string employee's id
 employee_url = 'https://jsonplaceholder.typicode.com/users'
