@@ -8,11 +8,9 @@ employee_url = 'https://jsonplaceholder.typicode.com/users'
 employee_todos = 'https://jsonplaceholder.typicode.com/todos'
 if argv[1]:
     employee_id = argv[1]
-
 response = requests.get(employee_url, params={"id": employee_id})
 employee_res = response.json()
 employee_name = employee_res[0].get('name')
-
 response = requests.get(employee_todos, params={"userId": employee_id})
 employee_todos = response.json()
 TOTAL_NUMBER_OF_TASKS = len(employee_todos)
