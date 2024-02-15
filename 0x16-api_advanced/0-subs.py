@@ -2,7 +2,6 @@
 """a function that queries the Reddit API and
 returns the number of subscribers """
 
-from sys import argv
 import requests
 
 
