@@ -11,19 +11,15 @@ def top_ten(subreddit):
 
     if subreddit:
         url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
-        try:
-            res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-            # raise an error is request fails
-            res.raise_for_status()
+        res = requests.get(url,
+                           headers={'User-Agent': 'My-User-Agent'},
+                           allow_redirects=False)
 
-            res = res.json()
-            if 'data' in res and 'children' in res['data']:
-                if len(res['data']['children']) > 0:
-                    for post in res['data']['children']:
-                        print(post['data']['title'])
-                else:
-                    print('None')
-        except requests.exceptions.RequestException as e:
+        if sub_info.status_code >= 300:
             print('None')
+        else:
+            res = res.json()
+            for post in res['data']['children']:
+                print(post['data']['title'])
     else:
         print('None')
